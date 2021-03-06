@@ -1,1 +1,18 @@
-<p>table works!</p>
+<table>
+    <thead>
+        <tr>
+            <td>
+                <button class="add-vacation">+Add Vacation</button>
+            </td>
+            <table-cell className="header-cell" *ngFor="let day of this.monthDays" [content]="day | date: 'EEEEEE dd'"></table-cell>
+            <td>Sum</td>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Team -->
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+    
+</table>

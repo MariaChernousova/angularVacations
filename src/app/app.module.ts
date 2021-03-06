@@ -8,6 +8,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { TableComponent } from './components/table/table.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CellComponent } from './components/table/cell/cell.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ButtonComponent } from './components/button/button.component';
     ModalComponent,
     TableComponent,
     NavigationComponent,
-    ButtonComponent
+    ButtonComponent,
+    CellComponent
   ],
   imports: [
     BrowserModule

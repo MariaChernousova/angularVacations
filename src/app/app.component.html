@@ -1,4 +1,4 @@
 <div class="App">
-  <navigation></navigation>
+  <navigation (onPrevMonth)="refreshDate($event)" (onNextMonth)="refreshDate($event)"></navigation>
 </div>
-<app-table></app-table>
+<app-table [date] = "this.currentDate"></app-table>

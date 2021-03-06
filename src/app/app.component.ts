@@ -24,8 +24,4 @@ export class AppComponent {
       next: (date) => (this.currentDate = date),
     });
   }
-
-  refreshDate(date: Date) {
-    this.currentDate = date;
-  }
 }

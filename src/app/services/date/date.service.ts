@@ -18,7 +18,7 @@ export class DateService {
     const month = date.getMonth();
     const year = date.getFullYear();
 
-    const days = new Array(this.getDaysInMonth(month, year));
+    const days = new Array(this.getDaysInMonth(month + 1, year));
     
     days.fill("day");
     return days.map((day, index) => {

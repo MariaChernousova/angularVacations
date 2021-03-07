@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DateService } from 'src/app/services/date/date.service';
+import { DateService } from 'src/app/services/date.service';
 
 @Component({
   selector: 'app-table',

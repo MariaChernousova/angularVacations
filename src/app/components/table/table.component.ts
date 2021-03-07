@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DateService } from 'src/app/services/date/date.service';
 
 @Component({
   selector: 'app-table',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private readonly dateService: DateService,
+  ) {
+  }
 
-  ngOnInit(): void {
+  public monthDays: Date[] = [];
+
+  @Input()
+  date: Date;
+  
+  ngOnInit(){
+    this.monthDays = this.dateService.getMonthDays(this.date);
+  }
+
+  ngOnChanges(){
+    this.monthDays = this.dateService.getMonthDays(this.date);
   }
 
 }

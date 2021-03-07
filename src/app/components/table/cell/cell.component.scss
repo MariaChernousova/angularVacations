@@ -1,2 +1,30 @@
+.header-cell, .cell {
+    width: 25px;
+    height: 61px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(126, 126, 126, 0.3);
+    padding: 0px 2px;
+    font-size: 13px;
+}
+
+.add-vacation-cell {
+    width: 220px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-top: none;
+    border-left: none;
+    height: 62px;
+}
+
+.team-info {
+    width: 219px;
+}
+
+.cell {
+    height: 33px;
+}
 
 

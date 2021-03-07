@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DateService } from '../../services/date/date.service';
 
@@ -7,6 +7,7 @@ import { DateService } from '../../services/date/date.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
+
 export class NavigationComponent implements OnInit, OnDestroy {
   constructor(public dateService: DateService) {}
 
@@ -16,6 +17,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   prevMonth() {
     this.dateService.setCurrentDate(new Date(this.navDate.getFullYear(),this.navDate.getMonth() - 1, 1));
   }
+
   nextMonth() {
     this.dateService.setCurrentDate(new Date(this.navDate.getFullYear(),this.navDate.getMonth() + 1, 1));
   }

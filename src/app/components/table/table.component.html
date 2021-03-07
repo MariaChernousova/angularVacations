@@ -1,18 +1,21 @@
-<table>
-    <thead>
-        <tr>
-            <td>
+<div class="table">
+    <div class="table-header">
+            <table-cell className="header-cell add-vacation-cell">
                 <button class="add-vacation">+Add Vacation</button>
-            </td>
-            <table-cell className="header-cell" *ngFor="let day of this.monthDays" [content]="day | date: 'EEEEEE dd'"></table-cell>
-            <td>Sum</td>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Team -->
+            </table-cell>
+            <table-cell className="header-cell" *ngFor="let day of this.monthDays">
+                <p class="week-day"> {{day | date: 'EEEEEE'}}</p>
+                <p class="month-day">{{day | date: 'd'}}</p>
+            </table-cell>
+            <table-cell className="header-cell">
+                <span>Sum</span>
+            </table-cell>
+        </div>
+    <!-- <tbody>
+        
     </tbody>
     <tfoot>
 
-    </tfoot>
+    </tfoot> -->
     
-</table>
+</div>

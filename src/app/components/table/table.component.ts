@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DateService } from 'src/app/services/date/date.service';
 
 @Component({
@@ -16,8 +16,15 @@ export class TableComponent implements OnInit{
 
   public monthDays: Date[] = [];
 
-  ngOnInit(): void {
-    this.monthDays = this.dateService.getMonthDays();
+  @Input()
+  date: Date;
+  
+  ngOnInit(){
+    this.monthDays = this.dateService.getMonthDays(this.date);
+  }
+
+  ngDoCheck(){
+    this.monthDays = this.dateService.getMonthDays(this.date);
   }
 
 }

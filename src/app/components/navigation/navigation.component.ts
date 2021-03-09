@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, EventEmitter, Output} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DateService } from '../../services/date/date.service';
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'navigation',

@@ -11,6 +11,9 @@
     justify-content: center;
 }
 
+.table-header {
+    flex-wrap: nowrap;
+}
 
 p {
     margin: 0px;
@@ -23,8 +26,8 @@ p {
 }
 
 .add-vacation {
-    width: 144px;
-    height: 40px;
+    width: 130px;
+    height: 35px;
     background: #48ba46;
     border-radius: 7px;
     outline: none;

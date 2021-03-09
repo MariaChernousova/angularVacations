@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TeamTypes } from 'src/app/dataTypes/teamTypes';
 
 @Component({
   selector: 'table-team',
@@ -13,6 +14,7 @@ export class TeamComponent implements OnInit {
   countDaysInMonth: number;
 
   cellDays: number[];
+  teamData: TeamTypes;
 
   ngOnInit(): void {
     this.cellDays = new Array(this.countDaysInMonth);

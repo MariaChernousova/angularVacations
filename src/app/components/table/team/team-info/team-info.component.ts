@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'table-team-info',
   templateUrl: './team-info.component.html',
   styleUrls: ['./team-info.component.scss']
 })
-export class TeamInfoComponent implements OnInit {
+export class TeamInfoComponent {
 
   constructor() { }
 
@@ -17,8 +17,5 @@ export class TeamInfoComponent implements OnInit {
 
   @Input()
   percentageOfAbsent: number;
-
-  ngOnInit(): void {
-  }
 
 }

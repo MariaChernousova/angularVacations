@@ -18,26 +18,25 @@ export class TeamComponent implements OnInit {
   @Input()
   teamData: TeamTypes;
 
+  @Input()
+  date: Date;
+
   public cellDays: number[];
   public countDaysInMonth: number;
   public monthNumber: number;
   public subscription : Subscription;
-  public date: Date;
 
   ngOnInit(): void {
-    this.subscription = this.dateService.currentDate.subscribe({
-      next: (date) => (this.date = date),
-    });
     this.countDaysInMonth = this.dateService.getDaysInMonth(this.date);
     this.monthNumber = this.date.getMonth();
     this.cellDays = new Array(this.countDaysInMonth);    
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  ngOnChanges(){
+  ngOnChanges(): void{
     this.countDaysInMonth = this.dateService.getDaysInMonth(this.date);
     this.monthNumber = this.date.getMonth();
     this.cellDays = new Array(this.countDaysInMonth);

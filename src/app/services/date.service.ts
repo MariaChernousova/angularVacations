@@ -14,7 +14,7 @@ export class DateService {
     this.currentDate.next(date);
   }
 
-  public getMonthDays(date = new Date()): Date[] {
+  public getMonthDays(date: Date): Date[] {
     const month = date.getMonth();
     const year = date.getFullYear();
 

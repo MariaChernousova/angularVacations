@@ -22,6 +22,4 @@ import { URL, OPTIONS } from '../teamData/constants'
             catchError(error => of(error))
           )
       }
-
-
   }

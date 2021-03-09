@@ -11,13 +11,12 @@ export class AppComponent {
 
   constructor(
     private readonly dateService: DateService,
-    ) 
-    {}
+  ) {}
 
-  currentDate: Date;
-  subscription: Subscription;
+  public currentDate: Date;
+  public subscription: Subscription;
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 

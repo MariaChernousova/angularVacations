@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserTypes } from 'src/app/dataTypes/userTypes';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserTypes } from 'src/app/dataTypes/userTypes';
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.scss']
 })
-export class MemberComponent implements OnInit {
+export class MemberComponent {
 
   constructor() { }
 
@@ -15,8 +15,5 @@ export class MemberComponent implements OnInit {
 
   @Input()
   memberData: UserTypes;
-
-  ngOnInit(): void {
-  }
 
 }

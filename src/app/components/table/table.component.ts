@@ -26,18 +26,18 @@ export class TableComponent implements OnInit{
   date: Date;
 
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
   
-  ngOnInit(){
+  ngOnInit(): void{
     this.monthDays = this.dateService.getMonthDays(this.date); 
     this.subscription = this.request.getTeams().subscribe(teams => {
       this.teamsData = teams;
     }) 
   }
 
-  ngOnChanges(){
+  ngOnChanges(): void{
     this.monthDays = this.dateService.getMonthDays(this.date);
   }
 

@@ -3,35 +3,50 @@
 }
 
 .team-count-members {
-    width: 50px;
-    font-size: 12px;
+    width: 40px;
+    font-size: 11px;
     line-height: 18px;
     color: #949494;
     margin-left: auto;
 
     &::before {
-      content: "";
-      width: 20px;
-      display: inline-block;
-      background-image: url(../../../../images/groups.svg);
-      height: 15px;
-      background-size: 20px 20px;
-      opacity: 0.6;
-      background-repeat: no-repeat;
-      padding-left: 3px;
+        content: "";
+        width: 18px;
+        display: inline-block;
+        background-image: url(../../../../images/groups.svg);
+        height: 13px;
+        background-size: 17px 17px;
+        opacity: 0.6;
+        background-repeat: no-repeat;
+        padding-left: 3px;
     }
 }
 
 .team-percentage-absent {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 18px;
-    padding: 1px 5px;
+    padding: 0px 4px;
     color: #fff;
     border-radius: 2px;
+    background-color: #48ba46;
 }
 
 .team-hide {
     background-image: url(../../../../images/arrowUp.svg);
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    display: block;
+    height: 18px;
+}
+
+.team-info {
+    font-size: 12px;
+    display: flex;
+    width: 180px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    padding-left: 8px;
+    padding-right: 5px;
+    border: 1px solid rgba(126, 126, 126, 0.3);
+    height: 30px;
+    align-items: center;
 }

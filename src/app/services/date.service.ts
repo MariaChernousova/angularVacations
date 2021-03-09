@@ -14,11 +14,11 @@ export class DateService {
     this.currentDate.next(date);
   }
 
-  public getMonthDays(date = new Date()): Date[] {
+  public getMonthDays(date: Date): Date[] {
     const month = date.getMonth();
     const year = date.getFullYear();
 
-    const days = new Array(this.getDaysInMonth(month + 1, year));
+    const days = new Array(this.getDaysInMonth(date));    
     
     days.fill("day");
     return days.map((day, index) => {
@@ -26,8 +26,10 @@ export class DateService {
     })
   }
 
-  public getDaysInMonth(month, year) {
-    return new Date(year, month, 0).getDate();
+  public getDaysInMonth(date : Date) : number {
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    return new Date(year, month + 1, 0).getDate();
   }
 
 }

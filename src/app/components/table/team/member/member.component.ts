@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UserTypes } from 'src/app/dataTypes/userTypes';
 
 @Component({
   selector: 'team-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.scss']
 })
-export class MemberComponent implements OnInit {
+export class MemberComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  @Input()
+  cellDays: number[];
 
+  @Input()
+  memberData: UserTypes;
+  
 }

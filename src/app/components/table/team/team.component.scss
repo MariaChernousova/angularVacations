@@ -1,9 +1,10 @@
-.team-header{
+.team-header, .team{
     display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 .team {
-    width: 100%;
-    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }

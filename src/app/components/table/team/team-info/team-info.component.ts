@@ -19,9 +19,6 @@ export class TeamInfoComponent implements OnInit {
   percentageOfAbsent: number;
 
   ngOnInit(): void {
-    console.log(this.teamName);
-    console.log(this.countMembers);
-    console.log(this.percentageOfAbsent);    
   }
 
 }

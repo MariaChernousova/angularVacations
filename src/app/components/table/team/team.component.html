@@ -1,14 +1,20 @@
 <div class="team">
     <div class="team-header">
-        <table-cell className="cell team-info">
-            <table-team-info [teamName] = "this.teamData.name" [countMembers] = "5" [percentageOfAbsent] = "this.teamData.percentageOfAbsent"></table-team-info>
+        <table-cell>
+            <table-team-info 
+                [teamName] = "this.teamData.name" 
+                [countMembers] = "this.teamData.members.length" 
+                [percentageOfAbsent] = "this.teamData.percentageOfAbsent[this.monthNumber]">
+            </table-team-info>
         </table-cell>
         <table-cell className="cell" *ngFor="let cell of this.cellDays"></table-cell>
         <table-cell className="cell sum-cell">
         </table-cell>
     </div>
     <div class="team-members">
-        <team-member ></team-member>
+        <team-member 
+            *ngFor="let member of this.teamData.members" 
+            [memberData]="member" [cellDays] ="this.cellDays" >
+        </team-member>
     </div>
-    
 </div>

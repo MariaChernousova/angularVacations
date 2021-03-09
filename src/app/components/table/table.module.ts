@@ -6,6 +6,7 @@ import { DateService } from 'src/app/services/date.service';
 import { TeamComponent } from './team/team.component';
 import { TeamInfoComponent } from './team/team-info/team-info.component';
 import { MemberComponent } from './team/member/member.component';
+import { Request } from 'src/app/services/request.service';
 
 
 @NgModule({
@@ -14,6 +15,6 @@ import { MemberComponent } from './team/member/member.component';
     CommonModule
   ],
   exports: [TableComponent],
-  providers: [DateService]
+  providers: [DateService, Request]
 })
 export class TableModule { }

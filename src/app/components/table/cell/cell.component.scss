@@ -20,11 +20,14 @@
 }
 
 .team-info {
-    width: 189px;
+    width: 183px;
+    padding-left: 8px;
+    justify-content: flex-start;
+    font-size: 11px;
 }
 
 .cell {
-    height: 33px;
+    height: 30px;
 }
 
 .sum-cell {

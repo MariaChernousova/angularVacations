@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserTypes } from 'src/app/dataTypes/userTypes';
 
 @Component({
   selector: 'team-member',
@@ -8,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class MemberComponent implements OnInit {
 
   constructor() { }
+
+  @Input()
+  cellDays: number[];
+
+  @Input()
+  memberData: UserTypes;
 
   ngOnInit(): void {
   }

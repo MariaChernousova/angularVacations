@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TeamTypes } from 'src/app/dataTypes/teamTypes';
 import { DateService } from 'src/app/services/date.service';
+import { Request } from 'src/app/services/request.service';
 // import { Team } from 'src/app/services/team.service';
 
 @Component({
@@ -14,17 +15,20 @@ export class TableComponent implements OnInit{
 
   constructor(
     private readonly dateService: DateService,
-    // private readonly teamService: Team,
+    private readonly request: Request
   ) {
   }
 
   public monthDays: Date[] = [];
-  public teams: TeamTypes[];  
+  // public teams: TeamTypes[];  
   public subscription: Subscription;
+  public teamsData: TeamTypes[];
+
 
 
   @Input()
   date: Date;
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -32,10 +36,12 @@ export class TableComponent implements OnInit{
   
   ngOnInit(){
     this.monthDays = this.dateService.getMonthDays(this.date); 
-    // this.subscription = this.teamService.teams.subscribe({
-    //   next: (data) => (this.teams = data),
-    // });  
-    console.log(this.teams);
+    this.subscription = this.request.getTeams().subscribe(teams => {
+      this.teamsData = teams;
+      console.log("req", teams);
+    }) 
+
+    console.log(this.teamsData);
   }
 
   ngDoCheck(){

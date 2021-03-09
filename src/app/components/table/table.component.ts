@@ -25,6 +25,10 @@ export class TableComponent implements OnInit{
   @Input()
   date: Date;
 
+  isWeekend(date: Date): boolean{
+    return this.dateService.isWeekend(date);
+  }
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

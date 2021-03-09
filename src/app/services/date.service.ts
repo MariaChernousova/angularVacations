@@ -32,4 +32,12 @@ export class DateService {
     return new Date(year, month + 1, 0).getDate();
   }
 
+  public isWeekend(date) {
+    if (date.getDay() === 6 || date.getDay() === 0 ) {
+      return true;
+    }
+    return false;
+  }
+
+
 }

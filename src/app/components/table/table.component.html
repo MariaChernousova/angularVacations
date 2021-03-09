@@ -3,7 +3,7 @@
         <table-cell className="header-cell add-vacation-cell">
             <button class="add-vacation">+Add Vacation</button>
         </table-cell>
-        <table-cell className="header-cell" *ngFor="let day of this.monthDays">
+        <table-cell className="header-cell" *ngFor="let day of this.monthDays" [ngClass] = "{'weekend': isWeekend(day)}">
             <p class="week-day"> {{day | date: 'EEEEEE'}}</p>
             <p class="month-day">{{day | date: 'd'}}</p>
         </table-cell>
@@ -12,6 +12,8 @@
         </table-cell>
     </div>
     <div class="table-body">
-        <table-team *ngFor="let team of this.teamsData" [teamData]="team" [countDaysInMonth] = "this.monthDays.length"></table-team>
+        <table-team *ngFor="let team of this.teamsData" [teamData]="team" 
+        [countDaysInMonth] = "this.monthDays.length" 
+        ></table-team>
     </div>
 </div>

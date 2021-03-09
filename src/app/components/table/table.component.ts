@@ -5,6 +5,7 @@ import { DateService } from 'src/app/services/date.service';
 import { Request } from 'src/app/services/request.service';
 // import { Team } from 'src/app/services/team.service';
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,7 +16,7 @@ export class TableComponent implements OnInit{
 
   constructor(
     private readonly dateService: DateService,
-    private readonly request: Request
+    private readonly request: Request,
   ) {
   }
 
@@ -28,6 +29,10 @@ export class TableComponent implements OnInit{
 
   @Input()
   date: Date;
+
+  isWeekend(date: Date): boolean{
+    return this.dateService.isWeekend(date);
+  }
 
 
   ngOnDestroy() {

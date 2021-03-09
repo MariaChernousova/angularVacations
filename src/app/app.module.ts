@@ -12,8 +12,9 @@ import { TableModule } from './components/table/table.module';
 // import {AppRoutingModule} from './app-routing.module';
 import { DateService } from './services/date.service';
 import { Request } from './services/request.service';
-import { Team } from './services/team.service';
-import { User } from './services/user.service';
+// import { Team } from './services/team.service';
+// import { User } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,13 +29,13 @@ import { User } from './services/user.service';
   imports: [
     BrowserModule,
     TableModule,
-    // AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     DateService,
     Request,
-    Team,
-    User,
+    // Team,
+    // User,
   ],
   bootstrap: [AppComponent]
 })

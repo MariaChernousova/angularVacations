@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DateService } from './services/date.service';
 import { Request } from './services/request.service';
-import { User } from './services/user.service';
-import { Team } from './services/team.service';
+// import { User } from './services/user.service';
+// import { Team } from './services/team.service';
 
 
 @Component({
@@ -15,9 +15,10 @@ export class AppComponent {
 
   constructor(private readonly dateService: DateService,
     private readonly request: Request,
-    private readonly user: User,
-    private readonly team: Team,) {
-  }
+    // private readonly user: User,
+    // private readonly team: Team,
+    ) 
+    {}
 
   currentDate: Date;
   subscription: Subscription;

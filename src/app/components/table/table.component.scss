@@ -1,10 +1,17 @@
 .table {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.table-header, .table-body {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
 
 .table-header {
-    display: flex;
     flex-wrap: nowrap;
 }
 
@@ -19,8 +26,8 @@ p {
 }
 
 .add-vacation {
-    width: 144px;
-    height: 40px;
+    width: 130px;
+    height: 35px;
     background: #48ba46;
     border-radius: 7px;
     outline: none;

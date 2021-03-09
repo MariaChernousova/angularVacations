@@ -1,6 +1,6 @@
-.header-cell {
-    width: 25px;
-    height: 60px;
+.header-cell, .cell {
+    width: 19px;
+    height: 55px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -11,12 +11,23 @@
 }
 
 .add-vacation-cell {
-    width: 220px;
+    width: 190px;
     justify-content: flex-start;
     align-items: flex-start;
     border-top: none;
     border-left: none;
-    height: 62px;
+    height: 56px;
 }
 
+.team-info {
+    width: 189px;
+}
+
+.cell {
+    height: 33px;
+}
+
+.sum-cell {
+    width: 24px;
+}
 

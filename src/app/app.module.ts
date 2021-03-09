@@ -16,7 +16,6 @@ import { Request } from './services/request.service';
 // import { User } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     DateService,
     Request,
-    // Team,
-    // User,
   ],
   bootstrap: [AppComponent]
 })

@@ -9,4 +9,4 @@ export interface TeamTypes {
   percentageOfAbsent: number[]
   members: UserTypes[]
   id: number
-  }
+}

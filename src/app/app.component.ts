@@ -5,7 +5,6 @@ import { Request } from './services/request.service';
 // import { User } from './services/user.service';
 // import { Team } from './services/team.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,10 +14,9 @@ export class AppComponent {
 
   constructor(private readonly dateService: DateService,
     private readonly request: Request,
-    // private readonly user: User,
-    // private readonly team: Team,
     ) 
     {}
+
 
   currentDate: Date;
   subscription: Subscription;

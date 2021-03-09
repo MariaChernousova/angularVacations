@@ -15,5 +15,5 @@ export class MemberComponent {
 
   @Input()
   memberData: UserTypes;
-
+  
 }

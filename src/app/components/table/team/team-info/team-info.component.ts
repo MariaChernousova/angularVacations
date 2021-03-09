@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'table-team-info',
@@ -17,5 +17,19 @@ export class TeamInfoComponent {
 
   @Input()
   percentageOfAbsent: number;
+
+  @Output()
+  onHide: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public isHidden: boolean;
+
+  ngOnInit() {
+    this.isHidden = false;
+  }
+
+  hideUsers(): void {
+    this.isHidden = !this.isHidden;
+    this.onHide.emit(this.isHidden);
+  }
 
 }

@@ -1,10 +1,41 @@
 .team-header, .team{
     display: flex;
-    width: 100%;
     justify-content: center;
 }
 
 .team {
     flex-wrap: wrap;
     margin-bottom: 30px;
+}
+
+.Frontend{
+    border-left: 3px solid #9b99ff;
+}
+
+.Backend{
+    border-left: 3px solid #f99;
+}
+
+.Designers{
+    border-left: 3px solid #7aafff;
+}
+
+.Managers{
+    border-left: 3px solid #ffa768;
+}
+.team-header{
+    &.Frontend{
+        background: rgba(155, 153, 255, 0.1);
+    }
+    &.Backend{
+        background: rgba(255, 153, 153, 0.1);
+    }
+    &.Designers{
+        background: rgba(122, 175, 255, 0.1);
+    }
+    
+    &.Managers{
+        background: rgba(255, 167, 104, 0.1);
+    }
+    
 }

@@ -1,5 +1,5 @@
 <div class="team">
-    <div class="team-header">
+    <div class="team-header" [ngClass] = "this.teamData.name">
         <table-cell>
             <table-team-info 
                 [teamName] = "this.teamData.name" 
@@ -13,11 +13,12 @@
         <table-cell className="cell sum-cell">
         </table-cell>
     </div>
-    <div  class="team-members" *ngIf="isTeamHidden">
+    <div  class="team-members" *ngIf="isTeamHidden" [ngClass] = "this.teamData.name">
         <team-member
             *ngFor="let member of this.teamData.members" 
             [isMemberHidden]="isTeamHidden"
             [memberData]="member" [cellDays] ="this.cellDays">
         </team-member>
+        
     </div>
 </div>

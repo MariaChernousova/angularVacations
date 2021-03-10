@@ -18,8 +18,7 @@ export class TeamComponent implements OnInit {
   @Input()
   teamData: TeamTypes;
 
-  @Input()
-  date: Date;
+  @Input() date: Date;
 
   public cellDays: number[];
   public countDaysInMonth: number;
@@ -31,7 +30,7 @@ export class TeamComponent implements OnInit {
     this.countDaysInMonth = this.dateService.getDaysInMonth(this.date);
     this.monthNumber = this.date.getMonth();
     this.cellDays = new Array(this.countDaysInMonth); 
-    this.isTeamHidden = false;
+    this.isTeamHidden = true;
   }
 
   ngOnDestroy(): void {

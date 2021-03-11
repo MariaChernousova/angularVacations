@@ -23,7 +23,6 @@ export class CellComponent {
   ngOnInit() {
     if(this.date) {
       this.isWeekend = this.dateService.isWeekend(this.date);
-      console.log(this.isWeekend);
     }
     
   }

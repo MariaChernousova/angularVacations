@@ -21,6 +21,9 @@ export class TeamComponent implements OnInit {
   @Input()
   date: Date;
 
+  @Input()
+  monthDays: Date[];
+
   public cellDays: number[];
   public countDaysInMonth: number;
   public monthNumber: number;
@@ -28,9 +31,7 @@ export class TeamComponent implements OnInit {
   public isTeamHidden:boolean;
 
   ngOnInit(): void {
-    this.countDaysInMonth = this.dateService.getDaysInMonth(this.date);
     this.monthNumber = this.date.getMonth();
-    this.cellDays = new Array(this.countDaysInMonth); 
     this.isTeamHidden = false;
   }
 
@@ -39,9 +40,7 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnChanges(): void{
-    this.countDaysInMonth = this.dateService.getDaysInMonth(this.date);
     this.monthNumber = this.date.getMonth();
-    this.cellDays = new Array(this.countDaysInMonth);
   }
 
   hideTeam(isHidden: boolean): void {

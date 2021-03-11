@@ -5,19 +5,24 @@
                 [teamName] = "this.teamData.name" 
                 [countMembers] = "this.teamData.members.length" 
                 [percentageOfAbsent] = "this.teamData.percentageOfAbsent[this.monthNumber]"
-                (onHide)="hideTeam($event)"
-                >
+                (onHide)="hideTeam($event)">
             </table-team-info>
         </table-cell>
-        <table-cell className="cell" *ngFor="let cell of this.cellDays"></table-cell>
+        <table-cell [date]="day" className="cell" *ngFor="let day of this.monthDays"></table-cell>
         <table-cell className="cell sum-cell">
         </table-cell>
     </div>
-    <div  class="team-members" *ngIf="isTeamHidden">
-        <team-member
-            *ngFor="let member of this.teamData.members" 
-            [isMemberHidden]="isTeamHidden"
-            [memberData]="member" [cellDays] ="this.cellDays">
-        </team-member>
+    <div class="team-members" *ngIf="!isTeamHidden">
+        <div class="member" *ngFor="let member of this.teamData.members">
+            <table-cell className = "team-info cell">
+                {{member.name}}
+            </table-cell>
+            <table-cell 
+                [date]="day" className="cell" 
+                *ngFor="let day of this.monthDays">
+            </table-cell>
+            <table-cell className="cell sum-cell">
+            </table-cell>
+        </div>
     </div>
 </div>

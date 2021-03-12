@@ -1,7 +1,7 @@
 <div class="table">
     <div class="table-header">
         <table-cell className="header-cell add-vacation-cell">
-            <button class="add-vacation">+Add Vacation</button>
+            <button class="add-vacation" (click)="openModalWithComponent()">+Add Vacation</button>
         </table-cell>
         <table-cell [date]="day" className="header-cell" *ngFor="let day of this.monthDays">
             <p class="week-day"> {{day | date: 'EEEEEE'}}</p>

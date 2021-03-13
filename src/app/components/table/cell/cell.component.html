@@ -1,3 +1,15 @@
-<div class="{{className}}" [ngClass]="{weekend : this.isWeekend}"> 
+<div class="{{className}}" 
+    [ngClass]="{
+        weekend : this.isWeekend
+    }"> 
+    <div *ngIf="this.isVacation" 
+        class="vacation" 
+        [ngClass]="{
+            paid : (this.isVacation && this.vacationData.type === 'Paid'),
+            unpaid : (this.isVacation && this.vacationData.type === 'UnPaid')
+        }"
+        [ngStyle]="{width: this.vacationData.days*25 - 2 +'px' }"
+        >
+    </div>
     <ng-content></ng-content>
 </div>

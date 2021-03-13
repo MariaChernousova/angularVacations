@@ -26,6 +26,8 @@ export class TableComponent implements OnInit{
 
   public monthDays: Date[] = [];
   public subscription: Subscription;
+  public subscriptionM: Subscription;
+
   public teamsData: TeamTypes[];
   public bsModalRef: BsModalRef;
 
@@ -47,6 +49,10 @@ export class TableComponent implements OnInit{
   openModalWithComponent() {
     this.bsModalRef = this.modalService.show(ModalComponent);
     this.bsModalRef.content.closeBtnName = 'Close'; 
+    this.subscription = this.bsModalRef.content.event.subscribe(res => {
+      this.teamsData = res.data;
+      console.log(this.teamsData);
+   });
   }
 
   ngOnChanges(): void{

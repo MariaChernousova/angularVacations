@@ -3,12 +3,12 @@
         weekend : this.isWeekend
     }"> 
     <div *ngIf="this.isVacation" 
-        class="vacation" 
+        class="vacation {{teamClassName}}" 
         [ngClass]="{
             paid : (this.isVacation && this.vacationData.type === 'Paid'),
             unpaid : (this.isVacation && this.vacationData.type === 'UnPaid')
         }"
-        [ngStyle]="{width: this.vacationData.days*25 - 2 +'px' }"
+        [ngStyle]="{width: (this.vacationData.days + 1)*25 - 2 +'px' }"
         >
     </div>
     <ng-content></ng-content>

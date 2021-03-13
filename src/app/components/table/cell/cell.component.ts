@@ -16,8 +16,12 @@ export class CellComponent {
 
   @Input()
   date: Date;
+
   @Input()
   vacations: VacationTypes[];
+
+  @Input()
+  teamClassName: string;
 
   public isWeekend:boolean;
   public vacationData: VacationData; 

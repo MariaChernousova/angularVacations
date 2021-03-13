@@ -1,7 +1,8 @@
-<div class="team">
-    <div class="team-header">
+<div class="team" >
+    <div class="team-header" [ngClass]="this.teamClassName">
         <table-cell>
             <table-team-info 
+                [teamClassName]="this.teamClassName"
                 [teamName] = "this.teamData.name" 
                 [countMembers] = "this.teamData.members.length" 
                 [percentageOfAbsent] = "this.teamData.percentageOfAbsent[this.monthNumber]"
@@ -12,12 +13,13 @@
         <table-cell className="cell sum-cell">
         </table-cell>
     </div>
-    <div class="team-members" *ngIf="!isTeamHidden">
-        <div class="member" *ngFor="let member of this.teamData.members">
+    <div class="team-members" [ngClass]="this.teamClassName" *ngIf="!isTeamHidden">
+        <div class="member" [teamClassName]="this.teamClassName" *ngFor="let member of this.teamData.members">
             <table-cell className = "team-info cell">
                 {{member.name}}
             </table-cell>
             <table-cell 
+                [teamClassName]="this.teamClassName"
                 [vacations]="member.vacations"
                 [date]="day" className="cell" 
                 *ngFor="let day of this.monthDays">

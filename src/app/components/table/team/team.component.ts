@@ -31,9 +31,12 @@ export class TeamComponent implements OnInit {
   public monthNumber: number;
   public subscription : Subscription;
   public isTeamHidden:boolean;
+  public countVacationDays: number = 0;
+  public teamClassName: string;
 
   ngOnInit(): void {
     this.monthNumber = this.date.getMonth();
+    this.teamClassName = this.teamData.name.split(" ")[0].toLowerCase();
     this.isTeamHidden = false;
   }
 

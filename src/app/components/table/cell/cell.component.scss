@@ -20,10 +20,11 @@
 }
 
 .team-info {
-    width: 183px;
+    width: 181px;
     padding-left: 8px;
     justify-content: flex-start;
     font-size: 11px;
+    border-left: 0px;
 }
 
 .cell {
@@ -42,26 +43,74 @@
 .vacation {
     position: absolute;
     height: 30px;
-    background-color: tomato;
     left: 0;
     z-index: 2;
     border-radius: 5px;
 }
 
 .paid {
-//     height: 30px;
-//     width: 30px;
-//     z-index: 4;
-//     color: #fff;
-//     border-radius: 5px;
-    background-color: violet;
+
+    &::before{
+        content: "Pd";
+        display: flex;
+        padding-top: 5px;
+        justify-content: center;
+        font-size: 11px;
+        }
+    color: #fff;
+
+    &.frontend {
+        background-color: #9B99FF;
+    }
+
+    &.backend {
+        background-color: #7AAFFF;
+    }
+
+    &.managers {
+        background-color: #FF9999;
+    }
+
+    &.designers {
+        background-color: #FFA768;
+    }
+
   }
 
   .unpaid {
-//     border: 1px solid #000;
-//     width: 30px;
-//     height: 28px;
-//     z-index: 4;
-//     border-radius: 5px;
-background-color: yellow;
-  }
+      border: 1px solid;
+      height: 28px;
+
+      &::before{
+        content: "UnPd";
+        display: flex;
+        padding-top: 5px;
+        justify-content: center;
+        font-size: 11px;
+        }
+
+    &.frontend {
+        border-color: #9B99FF;
+        color: #9B99FF;
+        background-color: rgba(#9B99FF, 0.2);
+    }
+
+    &.backend {
+        border-color: #7AAFFF;
+        color: #7AAFFF;
+        background-color: rgba(#7AAFFF, 0.2);
+    }
+
+    &.managers {
+        border-color: #FF9999;
+        color: #FF9999;
+        background-color: rgba(#FF9999, 0.2);
+    }
+
+    &.designers {
+        border-color: #FFA768;
+        color: #FFA768;
+        background-color: rgba(#FFA768, 0.2);
+    }
+
+}

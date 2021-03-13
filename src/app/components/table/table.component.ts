@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { TeamTypes } from 'src/app/dataTypes/teamTypes';
 import { DateService } from 'src/app/services/date.service';
 import { Request } from 'src/app/services/request.service';
+import { VacationService } from 'src/app/services/vacation.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -17,7 +18,8 @@ export class TableComponent implements OnInit{
   constructor(
     private readonly dateService: DateService,
     private readonly request: Request,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private readonly vacationService: VacationService
 
   ) {
   }

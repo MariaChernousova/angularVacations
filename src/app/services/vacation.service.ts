@@ -9,23 +9,27 @@ export class VacationService {
 
   constructor() { }
 
-  // getVacation(vacations : VacationTypes[])  {
-  //    const paidDays = vacations.map((vacation) => ({
-  //           startDay: Number.parseInt(vacation.startDate.split(".")[0], 10),
-  //           month: Number.parseInt(vacation.startDate.split(".")[1], 10),
-  //           endDay: Number.parseInt(vacation.endDate.split(".")[0], 10),
-  //           type: vacation.type,
-  //         })
-  //       );
+//   getCountVacationDays(vacation : VacationData): number  {
+//      let countVacationDays = 0;
+//         vacation
 
-  //       return paidDays;
-  // }
+//     return countVacationDays;
+//   }
 
   isDayVacation(date: Date, vacations: VacationTypes[]): VacationData{
     let result: VacationData;
-    let currentDay = date.toLocaleDateString();
+    const day = date.toLocaleDateString('en-US', {
+        day: '2-digit'
+    });
+    const month = date.toLocaleDateString('en-US', {
+        month: '2-digit'
+    });
+    const year = date.toLocaleDateString('en-US', {
+        year: 'numeric'
+    })
 
-
+    const currentDay = `${day}.${month}.${year}`
+         
     vacations.forEach((vacation) => {
       if (currentDay === vacation.startDate) {
         result = {

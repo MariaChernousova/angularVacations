@@ -25,6 +25,7 @@
                 *ngFor="let day of this.monthDays">
             </table-cell>
             <table-cell className="cell sum-cell">
+                {{this.vacationService.getCountVacationDays(member.vacations, date.getMonth())}}
             </table-cell>
         </div>
     </div>

@@ -9,12 +9,16 @@ export class VacationService {
 
   constructor() { }
 
-//   getCountVacationDays(vacation : VacationData): number  {
-//      let countVacationDays = 0;
-//         vacation
+  getCountVacationDays(vacations : VacationTypes[], month: number): number  {
+     let countVacationDays = 0;
+     vacations.forEach((vacation) => {
+         if((month + 1) === Number.parseInt(vacation.endDate.split(".")[1], 10)) {            
+            countVacationDays += Number.parseInt(vacation.endDate.split(".")[0], 10) - Number.parseInt(vacation.startDate.split(".")[0], 10) +1
+         }
+    })
 
-//     return countVacationDays;
-//   }
+    return countVacationDays;
+  }
 
   isDayVacation(date: Date, vacations: VacationTypes[]): VacationData{
     let result: VacationData;

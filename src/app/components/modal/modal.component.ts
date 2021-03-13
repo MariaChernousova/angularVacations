@@ -27,7 +27,6 @@ export class ModalComponent {
 
     public teamsData: TeamTypes[];
   public usersData: UserTypes[];
-  // public vacationsData: VacationTypes[];
   public subscription: Subscription;
   public dateFrom: Date;
   public dateTo: Date;
@@ -35,14 +34,15 @@ export class ModalComponent {
   public teamId: number;
   public userId: number;
   public vacationType: string;
+  public disableButton: boolean = true;
 
   initModalWindow(): void{
     this.modalWindow = new FormGroup({
-      dateFrom: new FormControl({value:'11.03.2021', disabled: false}, [Validators.required, Validators.pattern('[1-9]./')]),
-      dateTo: new FormControl({value:'15.03.2021', disabled: true}, [Validators.required, Validators.pattern('[1-9]./')]),
-      teamsData: new FormControl({value:'', disabled: false}),
-      usersData: new FormControl({value:'User Name', disabled: true}),
-      vacationsData: new FormControl({value:'Vacations type', disabled: true}),
+      dateFrom: new FormControl({value:'', disabled: false}, Validators.required),
+      dateTo: new FormControl({value:'', disabled: false}, Validators.required),
+      teamsData: new FormControl({value:null, disabled: true}, Validators.required),
+      usersData: new FormControl({value:null, disabled: true}, Validators.required),
+      vacationsData: new FormControl({value:null, disabled: true}, Validators.required),
 
 
     })
@@ -59,7 +59,21 @@ export class ModalComponent {
       let difference: number = (Number(new Date(this.dateTo)) - Number(new Date(this.dateFrom))) / (1000 * 3600 * 24) + 1;
       console.log('difference ' + difference);
       this.daysCounter = difference;
+      this.modalWindow.get('teamsData').enable();
+      this.modalWindow.get('usersData').enable();
+
     }
+    if(this.dateFrom > this.dateTo){
+      (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = 'rgba(228, 18, 18, 0.5)';
+      (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = 'rgba(228, 18, 18, 0.5)';
+      this.daysCounter = 0;
+      this.modalWindow.get('teamsData').disable();
+      this.modalWindow.get('usersData').disable();
+      this.modalWindow.get('vacationsData').disable();
+    } else {
+          (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = '#fff';
+          (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = '#fff';    
+        }
   }
 
   teamInputHandler(event){
@@ -75,6 +89,8 @@ export class ModalComponent {
     if (event.target.classList.contains('user')) {
       this.userId = event.target.value;
       console.log('usersData ' + this.userId);
+      this.modalWindow.get('vacationsData').enable();
+
     }
   }
   vacationInputHandler(event){
@@ -82,8 +98,27 @@ export class ModalComponent {
       this.vacationType = event.target.value;
 
       console.log('vacationType ' + this.vacationType);
+      this.disableButton = false;
     }
   }
+  
+  // dateValidation(){
+  //   if(this.dateFrom > this.dateTo){
+  //     (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = 'red';
+  //     (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = 'red';
+  //     this.daysCounter = 0;
+  //     this.modalWindow.get('teamsData').disable();
+  //     this.modalWindow.get('usersData').disable();
+  //     this.modalWindow.get('vacationsData').disable();
+  //   } else {
+  //     (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = '#fff';
+  //     (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = '#fff';
+  //     this.modalWindow.get('teamsData').enable();
+  //     this.modalWindow.get('usersData').enable();
+  //     this.modalWindow.get('vacationsData').disable();
+
+  //   }
+  // }
 
 
 

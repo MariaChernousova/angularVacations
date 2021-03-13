@@ -60,8 +60,6 @@ export class ModalComponent {
       console.log('difference ' + difference);
       this.daysCounter = difference;
       this.modalWindow.get('teamsData').enable();
-      this.modalWindow.get('usersData').enable();
-
     }
     if(this.dateFrom > this.dateTo){
       (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = 'rgba(228, 18, 18, 0.5)';
@@ -82,6 +80,8 @@ export class ModalComponent {
       console.log('teamsData ' + this.teamId);
       this.usersData = this.teamsData[this.teamId-1].members;
       console.log('usersData ' + this.usersData);
+      this.modalWindow.get('usersData').enable();
+
     }
   }
 

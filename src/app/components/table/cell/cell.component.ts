@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { VacationData } from 'src/app/dataTypes/vacationData';
+import { VacationTypes } from 'src/app/dataTypes/vacationsTypes';
 import { DateService } from 'src/app/services/date.service';
+import { VacationService } from 'src/app/services/vacation.service';
 
 @Component({
   selector: 'table-cell',
@@ -14,15 +17,33 @@ export class CellComponent {
   @Input()
   date: Date;
 
+  @Input()
+  vacations: VacationTypes[];
+
   public isWeekend:boolean;
+  public vacationData: VacationData; 
+  public isVacation: boolean = false;
 
   constructor(
-    private readonly dateService: DateService
+    private readonly dateService: DateService,
+    private readonly vacationService:VacationService
   ) {}
 
   ngOnInit() {
     if(this.date) {
       this.isWeekend = this.dateService.isWeekend(this.date);
+
+      if(this.vacations) {
+        this.vacationData = this.vacationService.isDayVacation(this.date, this.vacations);
+        
+        
+        if(this.vacationData) {
+          this.isVacation = true;
+        
+        console.log(this.vacationData);
+        }
+      }
+
     }
     
   }

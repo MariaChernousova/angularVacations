@@ -28,6 +28,7 @@
 
 .cell {
     height: 30px;
+    position: relative;
 }
 
 .sum-cell {
@@ -37,3 +38,31 @@
 .weekend {
     background-color: #F0F0F0;
 }
+
+.vacation {
+    position: absolute;
+    height: 30px;
+    background-color: tomato;
+    left: 0;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.paid {
+//     height: 30px;
+//     width: 30px;
+//     z-index: 4;
+//     color: #fff;
+//     border-radius: 5px;
+    background-color: violet;
+  }
+
+  .unpaid {
+//     border: 1px solid #000;
+//     width: 30px;
+//     height: 28px;
+//     z-index: 4;
+//     border-radius: 5px;
+background-color: yellow;
+  }
+

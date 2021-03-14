@@ -20,7 +20,6 @@ export class TableComponent implements OnInit{
     private readonly dateService: DateService,
     private readonly request: Request,
     private modalService: BsModalService,
-    // private readonly vacationService: VacationService,
     public  dayPersonStats: DayPersonStats
 
   ) {
@@ -33,7 +32,11 @@ export class TableComponent implements OnInit{
 
   public teamsData: TeamTypes[];
   public bsModalRef: BsModalRef;
-  public dayPersonsVacation: number[] = new Array();
+  public countMembers: number;
+  public countVacationMembers: number;
+  public percentageOfVacationPeople: number;
+  
+  
 
   @Input()
   date: Date;
@@ -42,14 +45,16 @@ export class TableComponent implements OnInit{
   }
   
   ngOnInit(): void{
-    this.monthDays = this.dateService.getMonthDays(this.date); 
     this.subscription = this.request.getTeams().subscribe(teams => {
       this.teamsData = teams;
+      this.countMembers = this.dayPersonStats.getCountPeople(this.teamsData);
+      this.countVacationMembers = this.dayPersonStats.getCountVacationPeople(this.teamsData, this.date);
+      this.percentageOfVacationPeople = this.dayPersonStats.getPercentageOfAbsentPeople(this.countMembers, this.countVacationMembers);
     }) 
-    // this.subscriptionVacation = this.dayPersonStats.dayPersonStats.subscribe({
-    //   next: (date) => (this.dayPersonsVacation = date),
-    // });
+    
   }
+
+
   openModalWithComponent() {
     
     this.bsModalRef = this.modalService.show(ModalComponent);
@@ -62,6 +67,12 @@ export class TableComponent implements OnInit{
   
   ngOnChanges(): void{
     this.monthDays = this.dateService.getMonthDays(this.date);
+    if(this.teamsData) {
+      this.countMembers = this.dayPersonStats.getCountPeople(this.teamsData);
+      this.countVacationMembers = this.dayPersonStats.getCountVacationPeople(this.teamsData, this.date);
+      this.percentageOfVacationPeople = this.dayPersonStats.getPercentageOfAbsentPeople(this.countMembers, this.countVacationMembers);  
+    }
+    
   }
 
 }

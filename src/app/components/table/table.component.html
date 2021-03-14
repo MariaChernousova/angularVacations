@@ -17,13 +17,12 @@
     <div class="table-footer">
         <table-cell className="footer-cell teams-info cell">Day-Person Stats</table-cell>
         <table-cell [date]="day" className="footer-cell cell" *ngFor="let day of this.monthDays">
-            <!-- {{day}} -->
         </table-cell>
         <table-cell className="footer-cell cell sum-cell">
         </table-cell>
         <div class="summary">
             <h4>{{date| date: 'MMMM'}} teams Summary</h4>
-            <p>On vacation <span className = "vacations-people"></span> <span className = "vacations-people-percentage"></span></p>
+            <p>On vacation <span class = "vacations-people">{{this.countVacationMembers}}</span> <span class = "vacations-people-percentage">{{this.percentageOfVacationPeople}}%</span></p>
         </div>
     </div>
 </div>

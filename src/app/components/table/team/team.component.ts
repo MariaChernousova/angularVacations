@@ -41,7 +41,6 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
   }
 
   ngOnChanges(): void{

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { TeamTypes } from 'src/app/dataTypes/teamTypes';
@@ -19,7 +19,7 @@ export class TableComponent implements OnInit{
     private readonly dateService: DateService,
     private readonly request: Request,
     private modalService: BsModalService,
-    private readonly vacationService: VacationService
+    private readonly vacationService: VacationService,
 
   ) {
   }
@@ -27,6 +27,7 @@ export class TableComponent implements OnInit{
   public monthDays: Date[] = [];
   public subscription: Subscription;
   public subscriptionM: Subscription;
+  public event: EventEmitter<any> = new EventEmitter();
 
   public teamsData: TeamTypes[];
   public bsModalRef: BsModalRef;
@@ -37,7 +38,6 @@ export class TableComponent implements OnInit{
 
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
   }
   
   ngOnInit(): void{
@@ -55,7 +55,7 @@ export class TableComponent implements OnInit{
       console.log(this.teamsData);
    });
   }
-
+  
   ngOnChanges(): void{
     this.monthDays = this.dateService.getMonthDays(this.date);
   }

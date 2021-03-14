@@ -52,15 +52,13 @@ export class ModalComponent {
       teamsData: new FormControl({value:null, disabled: true}, Validators.required),
       usersData: new FormControl({value:null, disabled: true}, Validators.required),
       vacationsData: new FormControl({value:null, disabled: true}, Validators.required),
-
-
     })
   }
+
   dateInputHandler(event){
     if (event.target.classList.contains('date-from')) {
       this.dateFrom = event.target.value;
       console.log(this.dateFrom);
-      
       this.dateFromString = `${this.datepipe.transform(this.dateFrom, 'dd.MM.yyyy')}`;
       console.log(this.dateFromString);
     } else if (event.target.classList.contains('date-to')) {
@@ -68,7 +66,6 @@ export class ModalComponent {
       console.log('Date to ' + this.dateTo);
       this.dateToString = `${this.datepipe.transform(this.dateTo, 'dd.MM.yyyy')}`;
       console.log(this.dateToString);
-
     }
     if(this.dateFrom && this.dateTo){
       let difference: number = (Number(new Date(this.dateTo)) - Number(new Date(this.dateFrom))) / (1000 * 3600 * 24) + 1;
@@ -96,7 +93,6 @@ export class ModalComponent {
       this.usersData = this.teamsData[this.teamId-1].members;
       console.log(this.usersData);
       this.modalWindow.get('usersData').enable();
-
     }
   }
 
@@ -106,13 +102,11 @@ export class ModalComponent {
       console.log('usersData ' + this.userId);
       this.modalWindow.get('vacationsData').enable();
       console.log(this.teamsData[this.teamId-1].members[this.userId-1].vacations);
-
     }
   }
   vacationInputHandler(event){
     if (event.target.classList.contains('vacation')) {
       this.vacationType = event.target.value;
-
       console.log('vacationType ' + this.vacationType);
       this.disableButton = false;
     }
@@ -131,28 +125,7 @@ export class ModalComponent {
     this.event.emit({ data: item });
   }
   
-  // dateValidation(){
-  //   if(this.dateFrom > this.dateTo){
-  //     (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = 'red';
-  //     (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = 'red';
-  //     this.daysCounter = 0;
-  //     this.modalWindow.get('teamsData').disable();
-  //     this.modalWindow.get('usersData').disable();
-  //     this.modalWindow.get('vacationsData').disable();
-  //   } else {
-  //     (document.querySelector('.date-from') as HTMLElement).style.backgroundColor = '#fff';
-  //     (document.querySelector('.date-to') as HTMLElement).style.backgroundColor = '#fff';
-  //     this.modalWindow.get('teamsData').enable();
-  //     this.modalWindow.get('usersData').enable();
-  //     this.modalWindow.get('vacationsData').disable();
-
-  //   }
-  // }
-
-
-
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
   }
   
   ngOnInit(): void{
@@ -160,14 +133,11 @@ export class ModalComponent {
       this.teamsData = teams;
       console.log(this.teamsData);
     }) 
-    // console.log(this.request.getTeams());
-
     this.initModalWindow();
   }
 
  
   closeWindow() {
-    // this.triggerEvent(form.value.name);
     this.bsModalRef.hide();
   }
 }

@@ -13,6 +13,40 @@
 
 .summary {
     width: 100%;
+    display: flex;
+    margin-left: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    h4 {
+        border-bottom: 1px solid rgba(126, 126, 126, 0.3);
+    }
+
+    p {
+        text-align: left;
+    }
+}
+
+.vacations-people {
+    padding: 0px 5px;
+
+    &::before {
+        content: "";
+        width: 18px;
+        display: inline-block;
+        background-image: url(../../images/groups.svg);
+        height: 13px;
+        background-size: 16px 16px;
+        opacity: 0.6;
+        background-repeat: no-repeat;
+    }
+}
+
+.vacations-people-percentage {
+    background-color: #48BA46;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 2px;
 }
 
 .table-header {

@@ -38,7 +38,7 @@ export class CellComponent {
 
       if(this.vacations) {
         
-        this.vacationData = this.vacationService.isDayVacation(this.date, this.vacations);     
+        this.vacationData = this.vacationService.getDayVacation(this.date, this.vacations);     
 
         if(this.vacationData) {
           this.isVacation = true;

@@ -2,7 +2,7 @@
     <span class="team-name">{{this.teamName}}</span>
     <span class="team-count-members">{{this.countMembers}}</span>
     <span class="team-percentage-absent" [ngClass]="this.teamClassName">{{this.percentageOfAbsent}}%</span>
-    <span class="team-hide"></span>
+    <span class="team-hide" [ngStyle]="this.isHidden ? {'transform': 'none'} : {'transform': 'rotate(180deg)'}"></span>
 </div>
 
 

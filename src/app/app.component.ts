@@ -17,7 +17,7 @@ export class AppComponent {
   public subscription: Subscription;
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {

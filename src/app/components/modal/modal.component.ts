@@ -152,7 +152,7 @@ export class ModalComponent {
 
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
   
   ngOnInit(): void{

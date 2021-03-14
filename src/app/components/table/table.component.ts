@@ -37,7 +37,7 @@ export class TableComponent implements OnInit{
 
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
   
   ngOnInit(): void{
@@ -47,6 +47,7 @@ export class TableComponent implements OnInit{
     }) 
   }
   openModalWithComponent() {
+    
     this.bsModalRef = this.modalService.show(ModalComponent);
     this.bsModalRef.content.closeBtnName = 'Close'; 
     this.subscription = this.bsModalRef.content.event.subscribe(res => {

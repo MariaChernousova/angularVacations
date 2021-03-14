@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { VacationData } from '../dataTypes/vacationData';
 import { VacationTypes } from '../dataTypes/vacationsTypes';
@@ -7,7 +8,9 @@ import { VacationTypes } from '../dataTypes/vacationsTypes';
 })
 export class VacationService {
 
-  constructor() { }
+  constructor(
+      private datePipe: DatePipe
+  ) { }
 
   getCountVacationDays(vacations : VacationTypes[], month: number): number  {
      let countVacationDays = 0;
@@ -20,19 +23,9 @@ export class VacationService {
     return countVacationDays;
   }
 
-  isDayVacation(date: Date, vacations: VacationTypes[]): VacationData{
+  getDayVacation(date: Date, vacations: VacationTypes[]): VacationData{
     let result: VacationData;
-    const day = date.toLocaleDateString('en-US', {
-        day: '2-digit'
-    });
-    const month = date.toLocaleDateString('en-US', {
-        month: '2-digit'
-    });
-    const year = date.toLocaleDateString('en-US', {
-        year: 'numeric'
-    })
-
-    const currentDay = `${day}.${month}.${year}`
+    const currentDay = this.datePipe.transform(date, "dd.MM.yyyy");
          
     vacations.forEach((vacation) => {
       if (currentDay === vacation.startDate) {

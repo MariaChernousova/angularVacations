@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -20,11 +20,12 @@ export class ModalComponent {
   modalWindow: FormGroup;
   modalForm;
   public event: EventEmitter<any> = new EventEmitter();
-  constructor(private modalService: BsModalService,
+  constructor (
+    private modalService: BsModalService,
     private formBuilder: FormBuilder,
-    public bsModalRef: BsModalRef,
+    @Inject(BsModalRef) public bsModalRef,
     private readonly request: Request,
-    public datepipe: DatePipe
+    public datePipe: DatePipe
     ) {
     }
 
@@ -59,12 +60,12 @@ export class ModalComponent {
     if (event.target.classList.contains('date-from')) {
       this.dateFrom = event.target.value;
       console.log(this.dateFrom);
-      this.dateFromString = `${this.datepipe.transform(this.dateFrom, 'dd.MM.yyyy')}`;
+      this.dateFromString = `${this.datePipe.transform(this.dateFrom, 'dd.MM.yyyy')}`;
       console.log(this.dateFromString);
     } else if (event.target.classList.contains('date-to')) {
       this.dateTo = event.target.value;
       console.log('Date to ' + this.dateTo);
-      this.dateToString = `${this.datepipe.transform(this.dateTo, 'dd.MM.yyyy')}`;
+      this.dateToString = `${this.datePipe.transform(this.dateTo, 'dd.MM.yyyy')}`;
       console.log(this.dateToString);
     }
     if(this.dateFrom && this.dateTo){

@@ -4,11 +4,15 @@
     flex-wrap: wrap;
 }
 
-.table-header, .table-body {
+.table-header, .table-body, .table-footer {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+}
+
+.summary {
+    width: 100%;
 }
 
 .table-header {
@@ -38,4 +42,5 @@ p {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 

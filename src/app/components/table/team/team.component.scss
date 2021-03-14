@@ -1,17 +1,15 @@
 .team-header, .team{
     display: flex;
-    // width: 100%;
     justify-content: center;
 }
 
 .team {
     flex-wrap: wrap;
     margin-bottom: 30px;
-
-    
 }
 
 .team-header, .team-members {
+    
     &.frontend {
         border-left: 3px solid #9B99FF;
     }

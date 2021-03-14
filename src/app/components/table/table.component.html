@@ -14,4 +14,15 @@
     <div class="table-body">
        <table-team *ngFor="let team of this.teamsData" [teamData]="team" [monthDays]="this.monthDays" [date]="this.date"></table-team>
     </div>
+    <div class="table-footer">
+        <table-cell className="footer-cell teams-info cell">Day-Person Stats</table-cell>
+        <table-cell [date]="day" className="footer-cell cell" *ngFor="let day of this.monthDays">
+        </table-cell>
+        <table-cell className="footer-cell cell sum-cell">
+        </table-cell>
+        <div class="summary">
+            <h4>{{date| date: 'MMMM'}} teams Summary</h4>
+            <p>On vacation <span className = "vacations-people"></span> <span className = "vacations-people-percentage"></span></p>
+        </div>
+    </div>
 </div>

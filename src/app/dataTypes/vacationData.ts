@@ -1,4 +1,4 @@
 export interface VacationData {
-    type: 'Paid' | 'UnPaid',
+    type: string,
     days: number
   }

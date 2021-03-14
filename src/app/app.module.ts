@@ -12,6 +12,7 @@ import { Request } from './services/request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RouterModule } from '@angular/router';
   providers: [
     DateService,
     Request,
-    BsModalRef
+    BsModalRef,
+    DatePipe
   ],
   entryComponents: [ModalComponent],
   bootstrap: [AppComponent]

@@ -7,14 +7,18 @@
 .table-header, .table-body, .table-footer {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     justify-content: center;
+}
+.table-footer{
+    flex-direction: column;
+}
+.footer{
+    display: flex;
 }
 
 .summary {
-    width: 100%;
     display: flex;
-    margin-left: 15px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
     justify-content: flex-start;
 

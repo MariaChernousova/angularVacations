@@ -28,7 +28,11 @@
 }
 
 .teams-info {
-    width: 190px;
+    width: 175px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
+    font-size: 11px;
 }
 
 .footer-cell {

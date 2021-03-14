@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { TeamTypes } from 'src/app/dataTypes/teamTypes';
 import { DateService } from 'src/app/services/date.service';
+import { DayPersonStats } from 'src/app/services/dayPersonStats.service';
 import { Request } from 'src/app/services/request.service';
 import { VacationService } from 'src/app/services/vacation.service';
 import { ModalComponent } from '../modal/modal.component';
@@ -19,24 +20,24 @@ export class TableComponent implements OnInit{
     private readonly dateService: DateService,
     private readonly request: Request,
     private modalService: BsModalService,
-    private readonly vacationService: VacationService,
+    // private readonly vacationService: VacationService,
+    public  dayPersonStats: DayPersonStats
 
   ) {
   }
 
   public monthDays: Date[] = [];
   public subscription: Subscription;
-  public subscriptionM: Subscription;
+  public subscriptionVacation: Subscription;
   public event: EventEmitter<any> = new EventEmitter();
 
   public teamsData: TeamTypes[];
   public bsModalRef: BsModalRef;
+  public dayPersonsVacation: number[] = new Array();
 
   @Input()
   date: Date;
   
-
-
   ngOnDestroy(): void {
   }
   
@@ -45,6 +46,9 @@ export class TableComponent implements OnInit{
     this.subscription = this.request.getTeams().subscribe(teams => {
       this.teamsData = teams;
     }) 
+    // this.subscriptionVacation = this.dayPersonStats.dayPersonStats.subscribe({
+    //   next: (date) => (this.dayPersonsVacation = date),
+    // });
   }
   openModalWithComponent() {
     

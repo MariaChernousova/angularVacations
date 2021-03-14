@@ -34,8 +34,7 @@ export class DateService {
 
   public isWeekend(date: Date) {
     const day = date.getDay();
-    console.log(day)
-    console.log(typeof day);
+
     if (day === 0 || day === 6) {
       return true;
     }

@@ -20,14 +20,24 @@
 }
 
 .team-info {
-    width: 183px;
+    width: 181px;
     padding-left: 8px;
     justify-content: flex-start;
     font-size: 11px;
+    border-left: 0px;
+}
+
+.teams-info {
+    width: 190px;
+}
+
+.footer-cell {
+    background-color: #F3F3F3;
 }
 
 .cell {
     height: 30px;
+    position: relative;
 }
 
 .sum-cell {
@@ -36,4 +46,79 @@
 
 .weekend {
     background-color: #F0F0F0;
+}
+
+.vacation {
+    position: absolute;
+    height: 30px;
+    left: 0;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.paid {
+
+    &::before{
+        content: "Pd";
+        display: flex;
+        padding-top: 5px;
+        justify-content: center;
+        font-size: 11px;
+        }
+    color: #fff;
+
+    &.frontend {
+        background-color: #9B99FF;
+    }
+
+    &.backend {
+        background-color: #7AAFFF;
+    }
+
+    &.managers {
+        background-color: #FF9999;
+    }
+
+    &.designers {
+        background-color: #FFA768;
+    }
+
+  }
+
+  .unpaid {
+      border: 1px solid;
+      height: 28px;
+
+      &::before{
+        content: "UnPd";
+        display: flex;
+        padding-top: 5px;
+        justify-content: center;
+        font-size: 11px;
+        }
+
+    &.frontend {
+        border-color: #9B99FF;
+        color: #9B99FF;
+        background-color: rgba(#9B99FF, 0.2);
+    }
+
+    &.backend {
+        border-color: #7AAFFF;
+        color: #7AAFFF;
+        background-color: rgba(#7AAFFF, 0.2);
+    }
+
+    &.managers {
+        border-color: #FF9999;
+        color: #FF9999;
+        background-color: rgba(#FF9999, 0.2);
+    }
+
+    &.designers {
+        border-color: #FFA768;
+        color: #FFA768;
+        background-color: rgba(#FFA768, 0.2);
+    }
+
 }

@@ -6,7 +6,6 @@
     width: 40px;
     font-size: 11px;
     line-height: 18px;
-    color: #949494;
     margin-left: auto;
 
     &::before {
@@ -28,7 +27,22 @@
     padding: 0px 4px;
     color: #fff;
     border-radius: 2px;
-    background-color: #48ba46;
+    
+    &.frontend {
+        background-color: #9B99FF;
+    }
+
+    &.backend {
+        background-color: #7AAFFF;
+    }
+
+    &.managers {
+        background-color: #FF9999;
+    }
+
+    &.designers {
+        background-color: #FFA768;
+    }
 }
 
 .team-hide {
@@ -41,7 +55,7 @@
 .team-info {
     font-size: 12px;
     display: flex;
-    width: 180px;
+    width: 178px;
     justify-content: space-around;
     flex-wrap: nowrap;
     padding-left: 8px;
@@ -49,4 +63,7 @@
     border: 1px solid rgba(126, 126, 126, 0.3);
     height: 30px;
     align-items: center;
+    border-left: 0px;
 }
+
+

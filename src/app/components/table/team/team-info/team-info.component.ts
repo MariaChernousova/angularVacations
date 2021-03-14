@@ -18,6 +18,9 @@ export class TeamInfoComponent {
   @Input()
   percentageOfAbsent: number;
 
+  @Input()
+  teamClassName: string;
+
   @Output()
   onHide: EventEmitter<boolean> = new EventEmitter<boolean>();
 

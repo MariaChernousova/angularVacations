@@ -9,6 +9,8 @@ import { UserTypes } from 'src/app/dataTypes/userTypes';
 import { VacationTypes } from 'src/app/dataTypes/vacationsTypes';
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { DatePipe } from '@angular/common';
+import { departmentTeams} from '../../teamData/teamData'
+
 
 @Component({
   selector: 'app-modal',
@@ -26,11 +28,9 @@ export class ModalComponent {
     @Inject(BsModalRef) public bsModalRef,
     private readonly request: Request,
     public datePipe: DatePipe
-    ) {
-    }
+    ) {}
 
-    public teamsData: TeamTypes[];
-
+  public teamsData: TeamTypes[];
   public usersData: UserTypes[];
   public vacationData: VacationTypes;
   public subscription: Subscription;
@@ -59,18 +59,13 @@ export class ModalComponent {
   dateInputHandler(event){
     if (event.target.classList.contains('date-from')) {
       this.dateFrom = event.target.value;
-      console.log(this.dateFrom);
       this.dateFromString = `${this.datePipe.transform(this.dateFrom, 'dd.MM.yyyy')}`;
-      console.log(this.dateFromString);
     } else if (event.target.classList.contains('date-to')) {
       this.dateTo = event.target.value;
-      console.log('Date to ' + this.dateTo);
       this.dateToString = `${this.datePipe.transform(this.dateTo, 'dd.MM.yyyy')}`;
-      console.log(this.dateToString);
     }
     if(this.dateFrom && this.dateTo){
       let difference: number = (Number(new Date(this.dateTo)) - Number(new Date(this.dateFrom))) / (1000 * 3600 * 24) + 1;
-      console.log('difference ' + difference);
       this.daysCounter = difference;
       this.modalWindow.get('teamsData').enable();
     }
@@ -90,9 +85,7 @@ export class ModalComponent {
   teamInputHandler(event){
     if (event.target.classList.contains('team')) {
       this.teamId = event.target.value;
-      console.log('teamsData ' + this.teamId);
       this.usersData = this.teamsData[this.teamId-1].members;
-      console.log(this.usersData);
       this.modalWindow.get('usersData').enable();
     }
   }
@@ -100,25 +93,21 @@ export class ModalComponent {
   userInputHandler(event){
     if (event.target.classList.contains('user')) {
       this.userId = event.target.value;
-      console.log('usersData ' + this.userId);
       this.modalWindow.get('vacationsData').enable();
-      console.log(this.teamsData[this.teamId-1].members[this.userId-1].vacations);
     }
   }
   vacationInputHandler(event){
     if (event.target.classList.contains('vacation')) {
       this.vacationType = event.target.value;
-      console.log('vacationType ' + this.vacationType);
       this.disableButton = false;
     }
   }
 
   saveVacations(){
     this.vacationData = {startDate: this.dateFromString, endDate: this.dateToString, type: this.vacationType}
+    departmentTeams.teams[this.teamId-1].members[this.userId-1].vacations.push(this.vacationData);
     this.teamsData[this.teamId-1].members[this.userId-1].vacations.push(this.vacationData);
-    console.log(this.teamsData[this.teamId-1].members[this.userId-1].vacations);
     this.triggerEvent(this.teamsData);
-    console.log(this.teamsData)
     this.bsModalRef.hide();
   }
 
@@ -132,7 +121,6 @@ export class ModalComponent {
   ngOnInit(): void{
     this.subscription = this.request.getTeams().subscribe(teams => {
       this.teamsData = teams;
-      console.log(this.teamsData);
     }) 
     this.initModalWindow();
   }

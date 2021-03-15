@@ -21,9 +21,7 @@ export class TableComponent implements OnInit{
     private readonly request: Request,
     private modalService: BsModalService,
     public  dayPersonStats: DayPersonStats
-
-  ) {
-  }
+  ) {}
 
   public monthDays: Date[] = [];
   public subscription: Subscription;
@@ -36,8 +34,6 @@ export class TableComponent implements OnInit{
   public countVacationMembers: number;
   public percentageOfVacationPeople: number;
   
-  
-
   @Input()
   date: Date;
   
@@ -51,17 +47,13 @@ export class TableComponent implements OnInit{
       this.countVacationMembers = this.dayPersonStats.getCountVacationPeople(this.teamsData, this.date);
       this.percentageOfVacationPeople = this.dayPersonStats.getPercentageOfAbsentPeople(this.countMembers, this.countVacationMembers);
     }) 
-    
   }
 
 
   openModalWithComponent() {
-    
     this.bsModalRef = this.modalService.show(ModalComponent);
-    this.bsModalRef.content.closeBtnName = 'Close'; 
     this.subscription = this.bsModalRef.content.event.subscribe(res => {
       this.teamsData = res.data;
-      console.log(this.teamsData);
    });
   }
   
@@ -72,7 +64,5 @@ export class TableComponent implements OnInit{
       this.countVacationMembers = this.dayPersonStats.getCountVacationPeople(this.teamsData, this.date);
       this.percentageOfVacationPeople = this.dayPersonStats.getPercentageOfAbsentPeople(this.countMembers, this.countVacationMembers);  
     }
-    
   }
-
 }

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
-
 import { AppComponent } from './app.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { ButtonComponent } from './components/button/button.component';
 import { TableModule } from './components/table/table.module';
 import { DateService } from './services/date.service';
 import { Request } from './services/request.service';
@@ -19,7 +17,6 @@ import { DatePipe } from '@angular/common';
     AppComponent,
     ModalComponent,
     NavigationComponent,
-    ButtonComponent,
   ],
   imports: [
     BrowserModule,

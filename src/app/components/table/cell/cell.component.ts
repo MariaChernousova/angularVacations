@@ -48,10 +48,6 @@ export class CellComponent {
 
         if(this.vacationData) {
           this.isVacation = true;
-          // for(let day = this.date.getDate() - 1; day <= day+this.vacationData.days; day++) {
-          //   this.dayPersonStats.getDayPersonStats()[day] ? this.dayPersonStats.setDayPersonStats(this.dayPersonStats.getDayPersonStats()[day] + 1 , day) : this.dayPersonStats.setDayPersonStats(1 , day)
-          //   console.log(this.dayPersonsVacation);
-          // }
         }
       }
 

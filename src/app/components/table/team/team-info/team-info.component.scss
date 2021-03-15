@@ -1,0 +1,69 @@
+.team-name {
+    font-weight: 600;
+}
+
+.team-count-members {
+    width: 40px;
+    font-size: 11px;
+    line-height: 18px;
+    margin-left: auto;
+
+    &::before {
+        content: "";
+        width: 18px;
+        display: inline-block;
+        background-image: url(../../../../images/groups.svg);
+        height: 13px;
+        background-size: 17px 17px;
+        opacity: 0.6;
+        background-repeat: no-repeat;
+        padding-left: 3px;
+    }
+}
+
+.team-percentage-absent {
+    font-size: 11px;
+    line-height: 18px;
+    padding: 0px 4px;
+    color: #fff;
+    border-radius: 2px;
+    
+    &.frontend {
+        background-color: #9B99FF;
+    }
+
+    &.backend {
+        background-color: #7AAFFF;
+    }
+
+    &.managers {
+        background-color: #FF9999;
+    }
+
+    &.designers {
+        background-color: #FFA768;
+    }
+}
+
+.team-hide {
+    background-image: url(../../../../images/arrowUp.svg);
+    width: 18px;
+    display: block;
+    height: 18px;
+}
+
+.team-info {
+    font-size: 12px;
+    display: flex;
+    width: 178px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    padding-left: 8px;
+    padding-right: 5px;
+    border: 1px solid rgba(126, 126, 126, 0.3);
+    height: 30px;
+    align-items: center;
+    border-left: 0px;
+}
+
+

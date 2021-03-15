@@ -1,0 +1,32 @@
+<div class="team" >
+    <div class="team-header" [ngClass]="this.teamClassName">
+        <table-cell>
+            <table-team-info 
+                [teamClassName]="this.teamClassName"
+                [teamName] = "this.teamData.name" 
+                [countMembers] = "this.teamData.members.length" 
+                [percentageOfAbsent] = "this.teamData.percentageOfAbsent[this.monthNumber]"
+                (onHide)="hideTeam($event)">
+            </table-team-info>
+        </table-cell>
+        <table-cell [date]="day" className="cell" *ngFor="let day of this.monthDays"></table-cell>
+        <table-cell className="cell sum-cell">
+        </table-cell>
+    </div>
+    <div class="team-members" [ngClass]="this.teamClassName" *ngIf="!isTeamHidden">
+        <div class="member" [teamClassName]="this.teamClassName" *ngFor="let member of this.teamData.members">
+            <table-cell className = "team-info cell">
+                {{member.name}}
+            </table-cell>
+            <table-cell 
+                [teamClassName]="this.teamClassName"
+                [vacations]="member.vacations"
+                [date]="day" className="cell" 
+                *ngFor="let day of this.monthDays">
+            </table-cell>
+            <table-cell className="cell sum-cell">
+                {{this.vacationService.getCountVacationDays(member.vacations, date.getMonth())}}
+            </table-cell>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Vacation Request</h3>
+            <p class="modal-count-days">{{daysCounter}} Days</p>
+        </div>
+        <form class="modal-info" [formGroup]="modalWindow" novalidate>
+            <label class="modal-subtitle">Dates</label>
+            <div class="modal-dates">
+              <div class="modal-date">
+                <p class="modal-date-text">From</p>
+                <input class="date date-from" type="date" required formControlName="dateFrom" (change)="dateInputHandler($event)"/>
+            </div>
+            <div class="modal-date">
+                <p class="modal-date-text">To</p>
+                <input class="date date-to" type="date" name="dateTo" ng-model="dateTo" required (change)="dateInputHandler($event)"/>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="team">Team</label>
+                <select class="form-control team" id="team" required formControlName="teamsData" (change)="teamInputHandler($event)">
+                    <option [ngValue]="null" hidden>Team name</option>
+                    <option *ngFor="let team of this.teamsData" [value]="team.id">{{team.name}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user">User</label>
+                <select class="form-control user" id="user" required formControlName="usersData" (change)="userInputHandler($event)">
+                    <option [ngValue]="null" hidden>User name</option>
+                  <option *ngFor="let user of this.usersData" [value]="user.id">{{user.name}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="vacation">Vac Type</label>
+                <select class="form-control vacation" id="team" required formControlName="vacationsData" (change)="vacationInputHandler($event)">
+                    <option [ngValue]="null" hidden>Vacation Type</option>
+                    <option value = "Paid">Paid Day Off (PD)</option>
+                    <option value = "UnPaid">Unpaid Day Off (UPD)</option>
+                </select>
+              </div>
+              <div class="modal-buttons">
+                <button class="btn cencel" (click)="closeWindow()">Cancel</button>
+                <button class="btn send" type="submit" [disabled]="disableButton ? 'disabled': null" (click)="saveVacations()">Send</button>
+            </div>
+    
+            </form>
+    </div>
+</div>

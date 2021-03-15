@@ -1,0 +1,29 @@
+<div class="table">
+    <div class="table-header">
+        <table-cell className="header-cell add-vacation-cell">
+            <button class="add-vacation" (click)="openModalWithComponent()">+Add Vacation</button>
+        </table-cell>
+        <table-cell [date]="day" className="header-cell" *ngFor="let day of this.monthDays">
+            <p class="week-day"> {{day | date: 'EEEEEE'}}</p>
+            <p class="month-day">{{day | date: 'd'}}</p>
+        </table-cell>
+        <table-cell className="header-cell sum-cell">
+            <span>Sum</span>
+        </table-cell>
+    </div>
+    <div class="table-body">
+       <table-team *ngFor="let team of this.teamsData" [teamData]="team" [monthDays]="this.monthDays" [date]="this.date"></table-team>
+    </div>
+    <div class="table-footer">
+        <div class="footer">
+            <table-cell className="footer-cell teams-info cell">Day-Person Stats</table-cell>
+            <table-cell [date]="day" className="footer-cell cell" *ngFor="let day of this.monthDays">0</table-cell>
+            <table-cell className="footer-cell cell sum-cell">
+            </table-cell>
+        </div>
+            <div class="summary">
+                <h4>{{date| date: 'MMMM'}} teams Summary</h4>
+                <p>On vacation <span class = "vacations-people">{{this.countVacationMembers}}</span> <span class = "vacations-people-percentage">{{this.percentageOfVacationPeople}}%</span></p>
+            </div>
+    </div>
+</div>

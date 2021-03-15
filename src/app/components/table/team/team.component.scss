@@ -1,0 +1,53 @@
+.team-header, .team{
+    display: flex;
+    justify-content: center;
+}
+
+.team {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.team-header, .team-members {
+    
+    &.frontend {
+        border-left: 3px solid #9B99FF;
+    }
+
+    &.backend {
+        border-left: 3px solid #7AAFFF;
+    }
+
+    &.managers {
+        border-left: 3px solid #FF9999;
+    }
+
+    &.designers {
+        border-left: 3px solid #FFA768;
+    }
+}
+
+.team-header{
+    &.frontend {
+        background: rgba(155, 153, 255, 0.1);
+    }
+
+    &.backend {
+        background: rgba(122, 175, 255, 0.1);
+
+    }
+
+    &.managers {
+        background: rgba(255, 153, 153, 0.1);
+    }
+
+    &.designers {
+        background: rgba(255, 167, 104, 0.1);
+    }
+}
+
+.member {
+    display: flex;
+    border-left: 0px;
+    
+}
